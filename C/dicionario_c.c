@@ -15,4 +15,16 @@ int main() {
 
     // Lê do teclado (paralelo do 'input')
     scanf("%d", &chute);
+
+    // Estrutura condicional
+
+    // if
+    if (/* Condição */) {
+        /* Faça algo */ 
+    };
+
+    else {
+        /* Faça algo */ 
+    };
+    
 }
