@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+// Constantes (variáveis "não variáveis", que seu valor não muda)
+// Uma constante, por convenção, é declarada usando letras maiúsculas
+
+#define NUMERO 5
+
+
 int main() {
 
     // Declarar variáveis (declarar tipo)
