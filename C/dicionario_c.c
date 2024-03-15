@@ -16,9 +16,12 @@ int main() {
     // Lê do teclado (paralelo do 'input')
     scanf("%d", &chute);
 
+    // =====================
     // Estrutura condicional
+    // =====================
 
-    // if
+    // Condição if
+
     if (/* Condição */) {
         /* Faça algo */ 
     };
@@ -26,5 +29,15 @@ int main() {
     else {
         /* Faça algo */ 
     };
+
+    // ======================
+    // Estrutura de repetição
+    // ======================
+
+    // Laço for
+
+    for (int i = 1; i <=3, i++){
+        /* Repete o código 3x */
+    }
     
 }
