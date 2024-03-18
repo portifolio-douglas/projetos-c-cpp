@@ -1,8 +1,17 @@
+/*
+Em C é necessário compilar o arquivo antes de executá-lo
+
+Os comandos são:
+
+Compilar - gcc <nomedoarquivo>.c -o <nomedoarquivo>.out
+Executar - ./<nomedoarquivo>.out
+*/
+
+
 #include <stdio.h>
 
 // Constantes (variáveis "não variáveis", que seu valor não muda)
 // Uma constante, por convenção, é declarada usando letras maiúsculas
-
 #define NUMERO 5
 
 
