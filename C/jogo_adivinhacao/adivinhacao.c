@@ -24,13 +24,16 @@ int main() {
     int acertou = 0;
     
     int nivel;
-    printf("Escolha a dificuldade:\n");
-    printf("(1) Fácil  (2) Médio  (3) Difícil\n\n");
-    printf("Sua escolha: ");
-    scanf("%d", &nivel);
 
     int num_tentativas;
-    switch (nivel) {
+    while (nivel > 3) {
+        printf("Escolha a dificuldade:\n");
+        printf("(1) Fácil  (2) Médio  (3) Difícil\n\n");
+        printf("Sua escolha: ");
+        scanf("%d", &nivel);
+        printf("\n");
+
+        switch (nivel) {
         case 1:
             num_tentativas = 20;
             break;
@@ -39,9 +42,14 @@ int main() {
             num_tentativas = 15;
             break;
         
-        default:
+        case 3:
             num_tentativas = 6;
             break;
+        
+        default:
+            printf("Insira uma dificuldade válida!\n\n");
+            break;
+        }
     }
 
     for (int i = 1; i <= num_tentativas; i++) {
