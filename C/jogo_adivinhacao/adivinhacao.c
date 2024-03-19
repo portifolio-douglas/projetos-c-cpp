@@ -26,7 +26,7 @@ int main() {
     int nivel;
 
     int num_tentativas;
-    while (nivel > 3) {
+    do {
         printf("Escolha a dificuldade:\n");
         printf("(1) Fácil  (2) Médio  (3) Difícil\n\n");
         printf("Sua escolha: ");
@@ -50,7 +50,7 @@ int main() {
             printf("Insira uma dificuldade válida!\n\n");
             break;
         }
-    }
+    } while (nivel > 3);
 
     for (int i = 1; i <= num_tentativas; i++) {
 
