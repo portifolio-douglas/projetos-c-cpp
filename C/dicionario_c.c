@@ -18,9 +18,12 @@ Executar - ./<nomedoarquivo>.out
 int main() {
 
     // Declarar variáveis (declarar tipo)
-    int numero = 42;
+    int numero = 42; // Usa 4 bytes de memória para armazenar um valor
+    long numero; // "Irmão" do int que armazena números maiores (Usa 8 bytes de memória para armazenar um valor)
+    short numero; // "Irmão" do int que armazena números menores (Usa 2 bytes de memória para armazenar um valor)
     int chute; // Variável sem valor para ser armazenada com 'scanf'
-    float numero_flutuante = 42.0;
+    double numero_decimal = 42.0; // Usa 8 bytes de memória para armazenar um valor
+    float numero_decimal; // "Irmão" do double que armazena números menores (Usa 4 bytes de memória para armazenar um valor)
 
     // Imprime
     printf("Bem vindo ao nosso jogo de adivinhação!\n");
@@ -29,7 +32,7 @@ int main() {
     printf("%d é o número secreto. Não conta para ninguém!/n", numero);
 
     // Lê do teclado (paralelo do 'input')
-    scanf("%d", &chute);
+    scanf("%d", &chute); // %d (Máscara de inteiro); %f (Máscara de decimal) -> %.(1)f o número entre () indica a quantidade de casas decimais a serem mostradas
 
     // =====================
     // Estrutura condicional
