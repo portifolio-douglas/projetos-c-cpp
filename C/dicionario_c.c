@@ -25,14 +25,20 @@ int main() {
     double numero_decimal = 42.0; // Usa 8 bytes de memória para armazenar um valor
     float numero_decimal; // "Irmão" do double que armazena números menores (Usa 4 bytes de memória para armazenar um valor)
 
+    char letra1 = 'A'; // Tipo para armazenar letras
+
     // Imprime
     printf("Bem vindo ao nosso jogo de adivinhação!\n");
 
     // Imprime com valores
+    // %d (Máscara de inteiro); %f (Máscara de decimal) -> %.(1)f o número entre () indica a quantidade de casas decimais a serem mostradas
     printf("%d é o número secreto. Não conta para ninguém!/n", numero);
 
+    // %c (Máscara de char)
+    printf("%c")
+
     // Lê do teclado (paralelo do 'input')
-    scanf("%d", &chute); // %d (Máscara de inteiro); %f (Máscara de decimal) -> %.(1)f o número entre () indica a quantidade de casas decimais a serem mostradas
+    scanf("%d", &chute);
 
     // =====================
     // Estrutura condicional
@@ -52,7 +58,7 @@ int main() {
         case 1:
             /* Faça algo */
             break;
-            
+
         default:
             /* Equivalente à 'case _:' */
             break; // SEMPRE usar o break, caso contrário o código continua a partir do caso selecionado
