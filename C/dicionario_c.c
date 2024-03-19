@@ -48,6 +48,16 @@ int main() {
         /* Faça algo */ 
     };
 
+    switch (/* Equivalente ao (match) em python */) {
+        case 1:
+            /* Faça algo */
+            break;
+            
+        default:
+            /* Equivalente à 'case _:' */
+            break; // SEMPRE usar o break, caso contrário o código continua a partir do caso selecionado
+    }
+
     // ======================
     // Estrutura de repetição
     // ======================
@@ -56,6 +66,6 @@ int main() {
 
     for (int i = 1; i <=3, i++){
         /* Repete o código 3x */
-    }
+    };
     
 }
