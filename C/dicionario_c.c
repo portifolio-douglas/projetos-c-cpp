@@ -26,6 +26,8 @@ int main() {
     float numero_decimal; // "Irmão" do double que armazena números menores (Usa 4 bytes de memória para armazenar um valor)
 
     char letra1 = 'A'; // Tipo para armazenar letras
+    char letra1[10]; // Tipo para armazenar em arrays
+    sprintf(letra1, "letra") // Função para armazenar letras/palavras/frases em uma variável
 
     // Imprime
     printf("Bem vindo ao nosso jogo de adivinhação!\n");
