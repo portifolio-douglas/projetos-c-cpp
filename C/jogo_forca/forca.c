@@ -1,9 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <string.h>
+#include "forca.h"
+
+
+// Variáveis globais
+char palavra_secreta[20];
+char chutes[26];
+int chutes_dados = 0;
 
 
 void abertura() {
-
     printf("****************\n");
     printf(" Jogo de Forca *\n");
     printf("****************\n\n");
@@ -11,23 +19,21 @@ void abertura() {
 }
 
 
-void chuta(char chutes[26], int* tentativas) {
-
+void chuta() {
     char chute;
     printf("Qual letra? ");
     scanf(" %c", &chute);
 
-    chutes[(*tentativas)] = chute;
-    (*tentativas)++;
+    chutes[chutes_dados] = chute;
+    chutes_dados++;
 
 }
 
 
-int jachutou(char letra, char chutes[26], int tentativas) {
-
+int ja_chutou(char letra) {
     int achou = 0;
     
-    for (int j = 0; j < tentativas; j++) {
+    for (int j = 0; j < chutes_dados; j++) {
         if (chutes[j] == letra) {
             achou = 1;
             break;
@@ -39,11 +45,10 @@ int jachutou(char letra, char chutes[26], int tentativas) {
 }
 
 
-void desenha_forca(char palavra_secreta[20], char chutes[26], int tentativas) {
-
+void desenha_forca() {
     for (int i = 0; i < strlen(palavra_secreta); i++) {
 
-        int achou = jachutou(palavra_secreta[i], chutes, tentativas);
+        int achou = ja_chutou(palavra_secreta[i]);
 
         if (achou) {
             printf("%c ", palavra_secreta[i]);
@@ -52,36 +57,75 @@ void desenha_forca(char palavra_secreta[20], char chutes[26], int tentativas) {
         }          
     }
     printf("\n");
-
 }
 
 
-void escolhe_palavra(char palavra_secreta[20]) {
+int acertou() {
+    for (int i = 0; i < strlen(palavra_secreta); i++) {
+        if (!ja_chutou(palavra_secreta[i])) {
+            return 0;
+        }
+    }
 
-    sprintf(palavra_secreta, "MELANCIA");
+    return 1;
+}
 
+
+int enforcou() {
+    int erros = 0;
+    for (int i = 0; i < chutes_dados; i++) {
+
+        int existe = 0;
+        for (int j = 0; j< strlen(palavra_secreta); j++) {
+            if (chutes[i] == palavra_secreta[j]){
+
+                existe = 1;
+                break;
+            }
+        }
+
+        if (!existe) erros++;
+        
+    }
+
+    return erros >= 5;
+}
+
+
+void escolhe_palavra() {
+    FILE* f;
+    
+    f = fopen("palavras.txt", "r");
+    if (f == 0) {
+        printf("Banco de dados não disponível.");
+        exit(1);
+    }
+
+    int qtddepalavras;
+    fscanf(f, "%d", &qtddepalavras);
+
+
+    srand(time(0));
+    int rand_num = rand() % qtddepalavras;
+
+    for (int i = 0; i <= rand_num; i++) {
+        fscanf(f, "%s", palavra_secreta);
+    }
+
+    fclose(f);
 }
 
 
 int main() {
 
-    char palavra_secreta[20];
-
-    int acertou = 0;
-    int enforcou = 0;
-
-    char chutes[26];
-    int tentativas = 0;
-
+    escolhe_palavra();
     abertura();
 
     do {
 
-        desenha_forca(palavra_secreta, chutes, tentativas);
-
-        chuta(chutes, &tentativas);
+        desenha_forca();
+        chuta();
                 
-    } while (!acertou && !enforcou);
+    } while (!acertou() && !enforcou());
 
-    
 }
