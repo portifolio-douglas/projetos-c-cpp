@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "time.h"
 #include "fogefoge.h"
-#include "mapa.h"
-#include "ui.h"
+#include "mapa.c"
+#include "ui.c"
 
 MAPA m;
 POSICAO heroi;
