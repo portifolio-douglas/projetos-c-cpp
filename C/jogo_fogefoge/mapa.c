@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "mapa.h"
 
+
 void lemapa(MAPA* m) {
 	FILE* f;
 	f = fopen("mapa.txt", "r");
@@ -20,6 +21,7 @@ void lemapa(MAPA* m) {
 	fclose(f);
 }
 
+
 void alocamapa(MAPA* m) {
 	m->matriz = malloc(sizeof(char*) * m->linhas);
 
@@ -27,6 +29,7 @@ void alocamapa(MAPA* m) {
 		m->matriz[i] = malloc(sizeof(char) * m->colunas + 1);
 	}
 }
+
 
 void liberamapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
@@ -36,11 +39,13 @@ void liberamapa(MAPA* m) {
 	free(m->matriz);
 }
 
+
 void imprimemapa(MAPA* m) {
 	for(int i = 0; i < m->linhas; i++) {
 		printf("%s\n", m->matriz[i]);
 	}
 }
+
 
 void encontramapa(MAPA* m, POSICAO* p, char c) {
 

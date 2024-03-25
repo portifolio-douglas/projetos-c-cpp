@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "fogefoge.h"
-#include "mapa.h"
+#include "mapa.c"
 
 MAPA m;
 POSICAO heroi;
@@ -10,6 +10,7 @@ POSICAO heroi;
 int acabou() {
 	return 0;
 }
+
 
 void move(char direcao) {
 
@@ -35,6 +36,7 @@ void move(char direcao) {
 	}
 	
 }
+
 
 int main() {
 	

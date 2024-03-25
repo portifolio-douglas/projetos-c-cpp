@@ -1,4 +1,3 @@
-
 struct mapa {
 	char** matriz;
 	int linhas;
